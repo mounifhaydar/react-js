@@ -1,0 +1,9 @@
+import './Navigator.css';
+
+function Navigator(props){
+    return <div className={props.style}>
+        {props.name}
+    </div>
+}
+
+export default Navigator;

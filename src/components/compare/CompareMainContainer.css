@@ -1,0 +1,25 @@
+.CompareMainContainer {
+  height: 40vmin;
+  background-color: #373b43;
+  min-height: 100vh;
+  display: block;
+  padding: 20vmin;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.indicator{
+  DISPLAY: inline-block;
+}
+.CompareResult{
+  display: inline-block;
+  width: 100%;
+}
+
+@media (max-width: 1020px) {
+  .indicator {
+      width: 100%;
+  }
+}
