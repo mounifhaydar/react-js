@@ -3,6 +3,8 @@ import CompareInput from './CompareInput';
 import Message from './Message';
 
 import './CompareMainContainer.css';
+import ActionBar from '../ActionBar';
+import '../ActionBar.css';
 
 const leftS = "actual";
 const rightS = "expected";
@@ -24,8 +26,11 @@ function CompareMainContainer(){
             <CompareInput ></CompareInput>
         </div>
         
+        <div id="actionBar" className="actionBar">
+          <ActionBar></ActionBar>
+        </div>
         <div className="CompareResult">
-              <Message></Message>
+              <Message type="JSON"></Message>
         </div>
         
     </div>

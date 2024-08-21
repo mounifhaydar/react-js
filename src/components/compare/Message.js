@@ -2,7 +2,7 @@ import { Component } from "react";
 
 class Message extends Component{
     render(){
-        return <hearder><h1>Below is the comparing result</h1></hearder>;
+        return <header><h1>Below is the comparing result of {this.props.type}</h1></header>;
     }
 }
 
