@@ -1,6 +1,7 @@
 import React from 'react';
 import CompareInput from './CompareInput';
 import Message from './Message';
+import CompareResult from './CompareResult';
 
 import './CompareMainContainer.css';
 import ActionBar from '../ActionBar';
@@ -14,6 +15,7 @@ function CompareMainContainer(){
 
   return (
     <div className="CompareMainContainer">
+      <div>
         <div id="input-left" className="left">
             <CompareInput ></CompareInput>
         </div>
@@ -25,12 +27,15 @@ function CompareMainContainer(){
         <div id="input-right" className="right">
             <CompareInput ></CompareInput>
         </div>
-        
+        </div>
         <div id="actionBar" className="actionBar">
           <ActionBar></ActionBar>
         </div>
-        <div className="CompareResult">
+        <div className="compareResult">
               <Message type="JSON"></Message>
+              <div>
+                <CompareResult></CompareResult>
+              </div>
         </div>
         
     </div>

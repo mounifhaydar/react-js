@@ -18,6 +18,14 @@
   width: 100%;
 }
 
+.left{
+  width: 40%;
+}
+
+.right{
+  width: 40%;
+}
+
 @media (max-width: 1020px) {
   .indicator {
       width: 100%;

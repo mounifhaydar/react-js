@@ -19,31 +19,25 @@ function App() {
           </div>
       </div>
       <header className="App-header">
+        <div>
       {displayHellow()}
+      </div>
+      <div>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        </div>
+      </header>
 
+      <CompareMainContainer></CompareMainContainer>
+      <footer className="App-footer">
         <a
           className="App-link"
           href=""
           target="_parent"
           rel="noopener noreferrer"
         >
-          go to compare
+          Discover more apps
         </a>
-      </header>
-
-      <CompareMainContainer></CompareMainContainer>
+      </footer>
     </div>
   );
 }
