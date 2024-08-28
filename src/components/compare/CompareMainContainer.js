@@ -16,7 +16,7 @@ function CompareMainContainer(){
   return (
     <div className="CompareMainContainer">
       <div>
-        <div id="input-left" className="left">
+        <div id="input-left" className="left input-left">
             <CompareInput ></CompareInput>
         </div>
         <div id="indicator" className='indicator'>
@@ -24,7 +24,7 @@ function CompareMainContainer(){
         <br></br>
         {rightS}&gt;&gt;
         </div>
-        <div id="input-right" className="right">
+        <div id="input-right" className="right  input-right">
             <CompareInput ></CompareInput>
         </div>
         </div>

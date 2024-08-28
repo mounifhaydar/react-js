@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 import CompareMainContainer from './components/compare/CompareMainContainer';
 import Navigator from './nav/Navigator';
+import ReactDOM from 'react-dom';
 
 const displayHellow = () => {
   return 'Welcome to Json Comparator'
@@ -10,13 +12,8 @@ const displayHellow = () => {
 function App() {
   return (
     <div className="App">
-      <div className="global-nav">
-          <div className='global-nav__nav'>
-            <ul className='global-nav__nav__primary-items'>
-            <li className='global-nav__primary-item'><Navigator name="Try Pro" style="selected"></Navigator></li>
-            <li className='global-nav__primary-item'><Navigator name="nOVAS" style="not-selected"></Navigator></li>
-            </ul>
-          </div>
+      <div id="global-nav" className="global-nav">
+        <GlobalNav items={menuItems}/>
       </div>
       <header className="App-header">
         <div>
@@ -28,17 +25,45 @@ function App() {
       </header>
 
       <CompareMainContainer></CompareMainContainer>
-      <footer className="App-footer">
+      <Footer link_desc="Discover more apps" year={new Date().getFullYear()}></Footer>
+    </div>
+  );
+}
+
+const mainMenu = [["Try Pro","selected"],["nOVAS","not-selected"]];
+const menuItems = mainMenu.map((item, i) => ({
+  id: i,
+  title: item[0],
+  style: item[1]
+}));
+
+function GlobalNav(props){
+  return(
+    <div>
+      <div className='global-nav__nav'>
+            <ul className='global-nav__nav__primary-items'>
+              {props.items.map( (item) => (
+                <li key ={item.id} className='global-nav__primary-item'><Navigator name={item.title} style={item.style}></Navigator></li>
+              ))}
+            </ul>
+          </div>
+    </div>
+  );
+}
+
+function Footer(props){
+  return(
+    <footer className="App-footer">
         <a
           className="App-link"
           href=""
           target="_parent"
           rel="noopener noreferrer"
         >
-          Discover more apps
+          {props.link_desc}
         </a>
+        <p>Copyright {props.year}</p>
       </footer>
-    </div>
   );
 }
 
