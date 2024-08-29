@@ -4,6 +4,7 @@ import React from 'react';
 import CompareMainContainer from './components/compare/CompareMainContainer';
 import Navigator from './nav/Navigator';
 import ReactDOM from 'react-dom';
+import backgroundJson from './assets/images/backgrounds/json-background.jpg';
 
 const displayHellow = () => {
   return 'Welcome to Json Comparator'
@@ -54,6 +55,9 @@ function GlobalNav(props){
 function Footer(props){
   return(
     <footer className="App-footer">
+      <div className="footer-logo">
+      <img className="footer-logo-img" src={backgroundJson}></img>
+      </div>
         <a
           className="App-link"
           href=""

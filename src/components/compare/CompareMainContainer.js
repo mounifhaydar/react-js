@@ -7,6 +7,7 @@ import './CompareMainContainer.css';
 import ActionBar from '../ActionBar';
 import '../ActionBar.css';
 
+
 const leftS = "actual";
 const rightS = "expected";
 
@@ -37,7 +38,6 @@ function CompareMainContainer(){
                 <CompareResult></CompareResult>
               </div>
         </div>
-        
     </div>
   );
 }

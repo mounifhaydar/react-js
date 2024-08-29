@@ -5,4 +5,6 @@
 
 .input{
     width: 100%;
+    resize: none;
+    min-height: 30vh;
 }

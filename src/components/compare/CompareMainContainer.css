@@ -2,12 +2,13 @@
   height: 40vmin;
   background-color: #373b43;
   min-height: 100vh;
-  display: block;
+  display: inline-table;
   padding: 20vmin;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  width: -webkit-fill-available;
 }
 
 .indicator{
