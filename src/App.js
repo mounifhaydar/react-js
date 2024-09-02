@@ -38,6 +38,9 @@ const menuItems = mainMenu.map((item, i) => ({
   style: item[1]
 }));
 
+const [firstItem, secondItem]=[mainMenu[0][0], mainMenu[1][0]];
+console.log("first Item" + firstItem);
+
 function GlobalNav(props){
   return(
     <div>
