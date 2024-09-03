@@ -57,20 +57,25 @@ function GlobalNav(props){
 
 function Footer(props){
   return(
-    <footer className="App-footer">
-      <div className="footer-logo">
-      <img className="footer-logo-img" src={backgroundJson}></img>
-      </div>
-        <a
-          className="App-link"
-          href=""
-          target="_parent"
-          rel="noopener noreferrer"
-        >
-          {props.link_desc}
-        </a>
-        <p>Copyright {props.year}</p>
-      </footer>
+    <div>
+  <footer className="App-footer">
+  <div className="footer-logo">
+  <img className="footer-logo-img" src={backgroundJson}></img>
+  </div>
+    <a
+      className="App-link"
+      href=""
+      target="_parent"
+      rel="noopener noreferrer"
+    >
+      {props.link_desc}
+    </a>
+    <p>© {props.year} Mounif Haydar. All rights reserved.</p>
+  </footer>
+ {/* <footer style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#f8f8f8' }}>
+    <p>© 2024 Mounif Haydar. All rights reserved.</p>
+  </footer>*/}
+  </div>
   );
 }
 
