@@ -100,7 +100,7 @@ useEffect(() => {
         resultRef.current.scrollIntoView({ behavior: 'smooth'  ,block: 'start', // Align the top of the element with the top of the viewport
           }); // Scroll to the element
       }
-    }, 300); // Adjust delay if needed
+    }, 500); // Adjust delay if needed
     } catch (error) {
       setLoading(false); // Set loading state to false after API call
       console.error('Error fetching data:', error);

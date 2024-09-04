@@ -31,11 +31,13 @@ function App() {
   );
 }
 
-const mainMenu = [["Try Pro","selected"],["nOVAS","not-selected"]];
+const mainMenu = [["Try Pro","selected","/pro"],["nOVAS","not-selected","/novas"],["Home","not-selected","/home"]
+,["Contact Us","not-selected","/contact"],["About Us","not-selected","/about"]];
 const menuItems = mainMenu.map((item, i) => ({
   id: i,
   title: item[0],
-  style: item[1]
+  style: item[1],
+  link_url: item[2],
 }));
 
 const [firstItem, secondItem]=[mainMenu[0][0], mainMenu[1][0]];
@@ -45,11 +47,13 @@ function GlobalNav(props){
   return(
     <div>
       <div className='global-nav__nav'>
+      <nav>
             <ul className='global-nav__nav__primary-items'>
               {props.items.map( (item) => (
-                <li key ={item.id} className='global-nav__primary-item'><Navigator name={item.title} style={item.style}></Navigator></li>
+                <li key ={item.id} className='global-nav__primary-item'><Navigator name={item.title} style={item.style} link_url={item.link_url}></Navigator></li>
               ))}
             </ul>
+            </nav>
           </div>
     </div>
   );
