@@ -24,6 +24,14 @@
   color: white;
 }
 
+.mainContainer {
+  background-color: #373b43;
+  display: grid;
+  color: #ffffff;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
 .App-footer {
   background-color: #282c34;
   min-height: 20vh;
@@ -44,6 +52,7 @@
   max-height: 5vh;
   overflow: hidden; /* To hide any overflow */
   position: relative; /* If you need to position children */
+  padding: 5px;
 }
 
 .footer-logo-img{

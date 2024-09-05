@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import CompareMainContainer from './components/compare/CompareMainContainer';
+
 import Navigator from './nav/Navigator';
 import ReactDOM from 'react-dom';
 import backgroundJson from './assets/images/backgrounds/json-background.jpg';
+import { Outlet } from "react-router-dom";
 
 const displayHellow = () => {
   return 'Welcome to Json Comparator'
@@ -24,14 +25,16 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         </div>
       </header>
-
-      <CompareMainContainer></CompareMainContainer>
+      <div className='mainContainer'>
+        <Outlet></Outlet>
+      </div>
+      
       <Footer link_desc="Discover more apps" year={new Date().getFullYear()}></Footer>
     </div>
   );
 }
 
-const mainMenu = [["Try Pro","selected","/pro"],["nOVAS","not-selected","/novas"],["Home","not-selected","/home"]
+const mainMenu = [["Try Pro","not-selected","/pro"],["Home","not-selected","/home"]
 ,["Contact Us","not-selected","/contact"],["About Us","not-selected","/about"]];
 const menuItems = mainMenu.map((item, i) => ({
   id: i,

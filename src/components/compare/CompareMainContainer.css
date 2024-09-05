@@ -1,9 +1,7 @@
 .CompareMainContainer {
   height: 40vmin;
-  background-color: #373b43;
   min-height: 100vh;
   display: inline-table;
-  padding: 20vmin;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -14,7 +12,7 @@
 .indicator{
   DISPLAY: inline-block;
 }
-.CompareResult{
+.mainCompareResult{
   display: inline-block;
   width: 100%;
 }

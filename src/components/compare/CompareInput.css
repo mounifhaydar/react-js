@@ -1,10 +1,11 @@
-.CompareInput{
+.compareInput{
     width: 40%;
     display: contents;
 }
 
-.input{
+.compareInput .input{
     width: 100%;
     resize: none;
     min-height: 80vh;
+    padding: 0px;
 }

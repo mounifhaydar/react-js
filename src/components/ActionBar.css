@@ -1,4 +1,9 @@
 .actionBar{
     display: inline-block;
     width: 100%;
+    padding: 10px;
+  }
+
+  .actionBar button{
+    margin-right: 5px;
   }

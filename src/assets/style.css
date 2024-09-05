@@ -1,0 +1,57 @@
+.header {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 2em;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  padding-bottom: 10px;
+  font-size: 1.5em;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+ul, ol {
+  margin-left: 20px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+
+ 
+ 
+ 
+
+
+  

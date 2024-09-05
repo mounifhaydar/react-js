@@ -7,11 +7,12 @@ import { ClipLoader } from 'react-spinners';
 
 import './CompareMainContainer.css';
 import ActionBar from '../ActionBar';
-import '../ActionBar.css';
 
 
 const leftS = "actual";
 const rightS = "expected";
+
+
 
 function CompareMainContainer(){
 
@@ -111,18 +112,23 @@ useEffect(() => {
 }
 }, [leftInput, rightInput]);
 
-//left on change
-useEffect(() => {
-  if (leftInput) {
-   // console.log(leftInput);
-    //setLeftInput(JSON.stringify(leftInput, null, 2)); // Update state properly
-  }
-  fetch(
-    'https://api.github.com/users/fanvsfan'
-  ).then(response => response.json()).then((data) => {
-    setLeftInput(JSON.stringify(data, null, 2)); // Correctly setting the state with fetched data
-  });
-}, []); // Dependency on leftInput to trigger the effect
+//left
+// useEffect(() => {
+//   if (leftInput) {
+//    // console.log(leftInput);
+//     //setLeftInput(JSON.stringify(leftInput, null, 2)); // Update state properly
+//   }
+//   fetch(
+//     'https://api.github.com/users/fanvsfan'
+//   ).then(response => response.json()).then((data) => {
+//     setLeftInput(JSON.stringify(data, null, 2)); // Correctly setting the state with fetched data
+//   });
+// }, []); // Dependency on leftInput to trigger the effect
+const createTmpJson = (value) => {
+  const jsTmp = {actual: value};
+  return jsTmp;
+};
+
 
 
 //right on change
@@ -179,7 +185,7 @@ if(compareOut){
         <div id="actionBar" className="actionBar">
           <ActionBar></ActionBar>
         </div>
-        <div ref={resultRef} className="compareResult">
+        <div ref={resultRef} className="mainCompareResult">
              
                 {/* Conditionally render the spinner or the main content */}
       {loading ? (

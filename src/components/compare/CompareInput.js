@@ -22,7 +22,7 @@ function CompareInput(props){
 
    
   return (
-    <div className="CompareInput">
+    <div className="compareInput">
       <textarea className='input'
         rows="5"
         cols="30"

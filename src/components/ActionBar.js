@@ -1,5 +1,5 @@
 import { Component } from "react";
-
+import './ActionBar.css';
 class ActionBar extends Component{
     constructor(){
         super();

@@ -1,0 +1,16 @@
+.main-contact-us{
+  text-align: -webkit-center;
+}
+
+.contact-us {
+  width: 90vh;
+  display: inline-block;
+  }
+  
+  .contact-us h2 {
+    border-bottom: 2px solid #ffffff;
+  }
+
+  .contact-us input, textarea{
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+  }

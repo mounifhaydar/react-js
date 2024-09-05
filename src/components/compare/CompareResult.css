@@ -1,6 +1,7 @@
 .compareResult{
-    width: 100%;
+    width: 90%;
     min-height: 30vmin;
+    display: inline-block;
 }
 
 .output{

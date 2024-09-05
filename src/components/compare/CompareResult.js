@@ -16,7 +16,7 @@ console.log("result clicked");
   }
 
   render() {
-    return (<div className="CompareResult">
+    return (<div className="compareResult">
       
 
 <textarea readOnly className='output'
