@@ -1,47 +1,33 @@
-import { Component } from "react";
+import { useState } from "react";
 import './ActionBar.css';
-class ActionBar extends Component{
-    constructor(){
-        super();
-        this.state={
-            sLeft: "",
-            sRight: "",
-            bSwipe:true,
-            bCompare:false,
-            bClear:true,
-        }
-    }
+const ActionBar = (props) => {
+    const {sLeft, sRight,onClickSwap, onClickCompare, onClickClear}=props;
+    const [bSwipe, setBSwipe] = useState(false);
+    const [bCompare, setBompare] = useState(true);
+    const [bClear, setBClear] = useState(false);
 
-    swipe(){
-        //this.state.bCompare=!this.state.bCompare;
-        this.setState({
-            sLeft:this.state.sRight,
-            sRight:this.state.sLeft,
-        }
-        );
-    }
-
-    compare(){
         
-    }
+    
 
-    clear(){
-        //this.state.bCompare=!this.state.bCompare;
-        this.setState({
-            sLeft:"",
-            sRight:"",
-            bCompare:false,
-        }
+    function swape  ()  {
+        onClickSwap("swap");
+        
+    };
+
+    function compare  () {
+        onClickCompare("compare");
+    };
+
+    function clear () {
+        onClickClear("clear");
+    };
+
+        return (<div > 
+            <button disabled={!bSwipe} onClick={() => swape()}>Swape</button>
+            <button disabled={!bCompare} onClick={() => compare()}>Compare</button>
+            <button disabled={!bClear} onClick={() => clear()}>Clear</button>
+        </div>
         );
-    }
-
-    render() {
-        return <div > 
-            <button disabled={!this.state.bSwipe} onClick={() => this.swipe()}>Swipe</button>
-            <button disabled={!this.state.bCompare} onClick={() => this.compare()}>Compare</button>
-            <button disabled={!this.state.bClear} onClick={() => this.clear()}>Clear</button>
-        </div>;
-    }
 }
 
 export default ActionBar;

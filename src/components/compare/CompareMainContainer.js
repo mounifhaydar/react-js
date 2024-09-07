@@ -7,7 +7,8 @@ import { ClipLoader } from 'react-spinners';
 
 import './CompareMainContainer.css';
 import ActionBar from '../ActionBar';
-
+import { API_CONSTANTS, APP_CONSTANTS } from '../../constants';
+import { JSON_EXAMPLE_LEFT, JSON_EXAMPLE_RIGHT } from '../../constants/jsonExample';
 
 const leftS = "actual";
 const rightS = "expected";
@@ -34,122 +35,106 @@ function CompareMainContainer(){
     }
   };
 
-/*useEffect(() => {
-  fetch(
-    'https://api.github.com/users/mounifhaydar'
-  ).then(response => response.json()).then((data) => {
-    setCompareOut(JSON.stringify(data, null, 2)); // Correctly setting the state with fetched data
-  });
-},[]);*/
-
-/*useEffect(() => {
-  // POST request to the API
-  fetch('https://json-comparator-initial.onrender.com/comparator/compare/details', {
-    method: 'POST', // Set method to POST
-    headers: {
-      'Content-Type': 'application/json' // Set content type to JSON
-    },
-    body: JSON.stringify({ // Replace with actual data
-      actual: {leftInput},
-      expected: {rightInput}
-    })
-  })
-    .then(response => response.json())
-    .then(data => {
-      setCompareOut(JSON.stringify(data, null, 2)); // Update state with fetched data
-    })
-    .catch(error => console.error('Error:', error)); // Handle errors
-}, []); // Empty dependency array to run effect only once on mount
-*/
-
-useEffect(() => {
-  if(leftInput && rightInput && validateJson(leftInput) && validateJson(rightInput)){
-    
-    // Create the JSON object
-    const payload = {
+  const buildComparatorInput = () => {
+     const payload = {
       actual: JSON.parse(leftInput),
       expected: JSON.parse(rightInput)
     };
-
     // Convert the object to a JSON string if needed
     const jsonString = JSON.stringify(payload);
+    return jsonString;
+  };
 
-    //console.log(jsonString);
+  //initialize the form
+useEffect(() => {
+  setLeftInput(JSON.stringify(JSON_EXAMPLE_LEFT, null, 2));
+  setRightInput(JSON.stringify(JSON_EXAMPLE_RIGHT, null, 2));
+  //onClickCompare();
+},[]);
 
-  const fetchData = async () => {
-    try {
-      setLoading(true); // Set loading state to true before API call
-      //'https://json-comparator-initial.onrender.com/comparator/compare/details'
-      const response = await fetch('/comparator/compare/details', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: jsonString,
-      });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
+const fetchData = async (jsonString) => {
+  try {
+    setLoading(true); // Set loading state to true before API call
+    const response = await fetch(API_CONSTANTS.COMPARATOR_ROUTE_COMPARE_DETAILS, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: jsonString,
+    }).then((response) => response.json())
+    .then((data) => {
       setCompareOut(JSON.stringify(data, null, 2));
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error('Error fetching data:', error);
+      alert("error on calling compare API: ", error);
+    })
+    .finally(() => {
       setLoading(false); // Set loading state to false after API call
-      setTimeout(() => {
+     // setTimeout(() => {
+     
+      /*
+      if (resultRef.current) {
+        resultRef.current.scrollIntoView({ behavior: 'smooth'  ,block: 'start', // Align the top of the element with the top of the viewport
+        }); // Scroll to the element
+        }*/
+    //  }, 100); // Adjust delay if needed
+    });
+
+    /*if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    setCompareOut(JSON.stringify(data, null, 2));  
+    setLoading(false); // Set loading state to false after API call
+    setTimeout(() => {//to avoid delay Im used the useEffect
       if (resultRef.current) {
         console.log(resultRef);
         resultRef.current.scrollIntoView({ behavior: 'smooth'  ,block: 'start', // Align the top of the element with the top of the viewport
           }); // Scroll to the element
       }
-    }, 500); // Adjust delay if needed
-    } catch (error) {
-      setLoading(false); // Set loading state to false after API call
-      console.error('Error fetching data:', error);
-    }
-  };
-  
-  fetchData();
-}
-}, [leftInput, rightInput]);
+  }, 500); // Adjust delay if needed
+    */
 
-//left
-// useEffect(() => {
-//   if (leftInput) {
-//    // console.log(leftInput);
-//     //setLeftInput(JSON.stringify(leftInput, null, 2)); // Update state properly
-//   }
-//   fetch(
-//     'https://api.github.com/users/fanvsfan'
-//   ).then(response => response.json()).then((data) => {
-//     setLeftInput(JSON.stringify(data, null, 2)); // Correctly setting the state with fetched data
-//   });
-// }, []); // Dependency on leftInput to trigger the effect
-const createTmpJson = (value) => {
-  const jsTmp = {actual: value};
-  return jsTmp;
+  window.requestAnimationFrame(() => {
+  if (resultRef.current) {
+    console.log(resultRef);
+    resultRef.current.scrollIntoView({ behavior: 'smooth'  ,block: 'start', // Align the top of the element with the top of the viewport
+      }); // Scroll to the element
+  }
+});
+
+  } catch (error) {
+    setLoading(false); // Set loading state to false after API call
+    console.error('Error fetching data:', error);
+  }
 };
 
+const onClickCompare = async () => {
+  if(leftInput && rightInput && validateJson(leftInput) && validateJson(rightInput)){
+    
+    // Create the JSON object
+    const jsonString = buildComparatorInput();
 
 
-//right on change
-useEffect(() => {
-  if (rightInput) {
-   // console.log(rightInput);
-    //setRightInput(JSON.stringify(rightInput, null, 2)); // Update state properly
-  }
-  fetch(
-    'https://api.github.com/users/mojombo'
-  ).then(response => response.json()).then((data) => {
-    setRightInput(JSON.stringify(data, null, 2)); // Correctly setting the state with fetched data
-  });
-}, []); // Dependency on setRightInput to trigger the effect
-
-
-/*
-if(compareOut){
-  console.log(compareOut);
-  leftInput=JSON.stringify(compareOut, null, 2);
+  
+  fetchData(jsonString);
 }
+};
+/*useEffect(() => {
+  onClickCompare();
+ if(leftInput && rightInput && validateJson(leftInput) && validateJson(rightInput)){
+    
+  // Create the JSON object
+  const jsonString = buildComparatorInput();
+
+
+
+fetchData(jsonString);
+}
+}, [leftInput, rightInput]);
 */
 
   return (
@@ -183,7 +168,7 @@ if(compareOut){
         </div>
         </div>
         <div id="actionBar" className="actionBar">
-          <ActionBar></ActionBar>
+          <ActionBar onClickSwap={(v) => alert(v)} onClickCompare={(v) => onClickCompare()} onClickClear={(v) => alert(v)}></ActionBar>
         </div>
         <div ref={resultRef} className="mainCompareResult">
              
@@ -195,7 +180,7 @@ if(compareOut){
         <>
         <Message type="JSON"></Message>
         <div  >
-                <CompareResult  compareResultValue={compareOut|| ""}></CompareResult>
+               <CompareResult  compareResultValue={compareOut|| ""}></CompareResult>
                 
                 </div>
                 </>

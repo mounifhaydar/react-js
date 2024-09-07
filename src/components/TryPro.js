@@ -1,5 +1,6 @@
 import React from 'react';
 import './TryPro.css'; // Assuming you have a CSS file for styling
+import { APP_CONSTANTS } from '../constants';
 
 const TryPro = () => {
   return (
@@ -67,7 +68,7 @@ const TryPro = () => {
       </section>
       <section className="contact-us">
         <h2>Contact Us</h2>
-        <p>Have questions or need support? Reach out to our team at <a href="mailto:mounifhaydar@gmail.com">mounifhaydar@gmail.com</a> or visit our <a href="/help-center">Help Center</a>.</p>
+        <p>Have questions or need support? Reach out to our team at <a href={"mailto:" + APP_CONSTANTS.SUPPORT_EMAIL}>{APP_CONSTANTS.SUPPORT_EMAIL}</a> or visit our <a href="/help-center">Help Center</a>.</p>
       </section>
     </div>
   );

@@ -30,7 +30,7 @@ const HelpCenter = () => {
         <div className="faq-item">
           <h3>How can I contact support?</h3>
           <p>
-            If you need assistance, please reach out to our support team at <a href="mailto:support@example.com">support@example.com</a>.
+            If you need assistance, please reach out to our support team at <a href="mailto:mounifhaydar@gmail.com">mounifhaydar@gmail.com</a>.
           </p>
         </div>
       </section>

@@ -9,3 +9,14 @@
     resize: none;
     min-height: 50vh;
 }
+
+.diffResult{
+    width: 70%;
+    float: left;
+}
+
+.diffCount{
+width: 20%;
+max-width: 250px;
+float: right;
+}

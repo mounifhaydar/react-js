@@ -4,20 +4,16 @@ import './CompareInput.css'
 function CompareInput(props){
     // Use the value and onChange prop passed from the parent
   const { value, onChange } = props;
-  const [text, setText] = useState(props.value || ""); // Initialize with props.value
+  const [textInputValue, setTextInputValue] = useState(value || ""); // Initialize with props.value
 
   function onChangeText(value) {
-   
-  }
-
-  function onChangeText(value) {
-      setText(value);
+     setTextInputValue(value);
       onChange(value); // Call the onChange function from props to propagate the change up
   }
 
-  useEffect(() => {
-    setText(props.value || ""); // Update text state when props.value changes
-  }, [props.value]); // Dependency array to re-run effect when props.value changes
+  useEffect(() => {//To render the textinput when receive value from the parent component throw the prop
+    setTextInputValue(value || ""); // Update text state when props.value changes
+  }, [value]); // Dependency array to re-run effect when props.value changes
 
 
    
@@ -27,7 +23,7 @@ function CompareInput(props){
         rows="5"
         cols="30"
         placeholder="Past your json here..."
-        value={text|| ""}
+        value={textInputValue|| ""}
         onChange={(e) => onChangeText(e.target.value)}
       />
     </div>

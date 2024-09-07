@@ -2,6 +2,7 @@ import React from 'react';
 import './AboutUs.css'; // Assuming you have a CSS file for styling
 import { Link, Outlet } from 'react-router-dom';
 import OurHistory from './OurHistory';
+import { APP_CONSTANTS } from '../constants';
 
 export function History(){
   return (
@@ -55,7 +56,7 @@ export function AboutUs () {
       <section className="contact-info">
         <h2>Contact Us</h2>
         <p>
-          Have questions or want to learn more about us? Feel free to <a href="mailto:support@example.com">contact us</a>.
+          Have questions or want to learn more about us? Feel free to <a href={"mailto:" + APP_CONSTANTS.SUPPORT_EMAIL}>contact us</a>.
         </p>
       </section>
 
