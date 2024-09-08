@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ContactUs.css'; // Assuming you have a CSS file for styling
-
+import { APP_CONSTANTS } from '../constants';
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -73,7 +73,7 @@ const ContactUs = () => {
       <section className="contact-info">
         <h2>Our Contact Information</h2>
         <p>
-          You can also reach us via email at <a href="mailto:support@example.com">support@example.com</a>.
+          You can also reach us via email at <a href={"mailto:"+ APP_CONSTANTS.SUPPORT_EMAIL}>{APP_CONSTANTS.SUPPORT_EMAIL}</a>.
         </p>
       </section>
     </div>

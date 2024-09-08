@@ -11,7 +11,7 @@ function Navigator(props){
     }
 
     return <div className={style +" menu"} onClick={itemOnClick}>
-        <NavLink to={link_url} activeClassName="active"> {name}</NavLink>
+        <NavLink to={link_url} activeclassname="active"> {name}</NavLink>
     </div>
 }
 

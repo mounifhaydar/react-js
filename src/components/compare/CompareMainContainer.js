@@ -20,7 +20,7 @@ function CompareMainContainer(){
   
   const [leftInput, setLeftInput] = useState(null); // Use state for dynamic values
   const [rightInput, setRightInput] = useState(null); // Use state for dynamic values
-
+  const [isFirstLoad, setIsFirstLoad] = useState(false); // Track initialization
   const [compareOut, setCompareOut]=useState(null);
   
   const [loading, setLoading] = useState(false); // State to track loading
@@ -47,11 +47,19 @@ function CompareMainContainer(){
 
   //initialize the form
 useEffect(() => {
-  setLeftInput(JSON.stringify(JSON_EXAMPLE_LEFT, null, 2));
-  setRightInput(JSON.stringify(JSON_EXAMPLE_RIGHT, null, 2));
-  //onClickCompare();
-},[]);
+    setLeftInput(JSON.stringify(JSON_EXAMPLE_LEFT, null, 2));
+    setRightInput(JSON.stringify(JSON_EXAMPLE_RIGHT, null, 2));
+    // Mark as initialized once inputs are set
+    setIsFirstLoad(true);
+},[]);// Run only once on component load
 
+// Use this effect to call onClickCompare after both states are updated
+useEffect(() => {
+  if (isFirstLoad) {
+    setIsFirstLoad(false);
+    onClickCompare();
+  }
+}, [leftInput, rightInput]); // Trigger only when inputs are updated and initialized
 
 const fetchData = async (jsonString) => {
   try {
@@ -65,7 +73,6 @@ const fetchData = async (jsonString) => {
     }).then((response) => response.json())
     .then((data) => {
       setCompareOut(JSON.stringify(data, null, 2));
-      console.log(data);
     })
     .catch((error) => {
       console.error('Error fetching data:', error);
@@ -123,7 +130,28 @@ const onClickCompare = async () => {
   fetchData(jsonString);
 }
 };
-/*useEffect(() => {
+
+const onClickSwap = async () => {
+  // Create the JSON object
+    const tmp = leftInput;
+    setLeftInput(rightInput);
+    setRightInput(leftInput);
+};
+
+const onClickClear = async () => {
+  clear();
+};
+
+const clear = async () => {
+  // Create the JSON object
+    setLeftInput("{}");
+    setRightInput("{}");
+    setCompareOut(null);
+};
+
+/*
+//on change
+useEffect(() => {
   onClickCompare();
  if(leftInput && rightInput && validateJson(leftInput) && validateJson(rightInput)){
     
@@ -168,7 +196,7 @@ fetchData(jsonString);
         </div>
         </div>
         <div id="actionBar" className="actionBar">
-          <ActionBar onClickSwap={(v) => alert(v)} onClickCompare={(v) => onClickCompare()} onClickClear={(v) => alert(v)}></ActionBar>
+          <ActionBar onClickSwap={onClickSwap} onClickCompare={onClickCompare} onClickClear={onClickClear}></ActionBar>
         </div>
         <div ref={resultRef} className="mainCompareResult">
              

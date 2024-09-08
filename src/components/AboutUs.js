@@ -17,30 +17,20 @@ export function AboutUs () {
         <h1>About Us</h1>
       </header>
       <section className="company-info">
-        <h2>Our Company</h2>
+        <h2>About the Tool</h2>
         <p>
-          We are a leading provider of JSON comparison tools, dedicated to helping developers and data professionals efficiently compare and analyze JSON data. Our mission is to deliver high-quality, reliable, and user-friendly solutions that meet the needs of our diverse clientele.
+        Welcome to JSON Compare, your ultimate solution for JSON comparison. Tailored for developers and data professionals, our tool simplifies the process of comparing and analyzing JSON data. With a focus on precision, reliability, and ease of use, we are dedicated to providing a high-quality experience that meets the diverse needs of our users.
         </p>
       </section>
       <section className="our-team">
-        <h2>Our Team</h2>
+        <h2>About the Creator</h2>
+        <strong>Mounif Haydar</strong> - Creator & Founder
         <p>
-          Our team consists of experienced professionals with a passion for technology and innovation. We work together to create cutting-edge tools that simplify complex tasks and improve productivity. Meet some of the key members of our team:
+        Mounif Haydar is the sole creator behind JSON Compare, driven by a passion for technology and a commitment to addressing complex data challenges. Focused on delivering innovative and user-friendly solutions, Mounif has developed this tool to enhance productivity and make JSON data comparison both straightforward and efficient.
         </p>
-        <ul>
-          <li>
-            <strong>John Doe</strong> - CEO & Founder
-            <p>John leads our company with a vision for excellence and innovation.</p>
-          </li>
-          <li>
-            <strong>Jane Smith</strong> - CTO
-            <p>Jane oversees our technology strategy and ensures the highest quality in our products.</p>
-          </li>
-          <li>
-            <strong>Emily Johnson</strong> - Lead Developer
-            <p>Emily is the driving force behind our development efforts, creating robust and efficient solutions.</p>
-          </li>
-        </ul>
+        <p>
+        As the architect behind the platform’s development, Mounif’s expertise in creating robust and efficient solutions is central to what makes JSON Compare a trusted tool for seamless data analysis.
+        </p>
       </section>
       <section className="our-values">
         <h2>Our Values</h2>
@@ -48,9 +38,9 @@ export function AboutUs () {
           We are committed to:
         </p>
         <ul>
-          <li><strong>Innovation:</strong> Continuously improving and innovating our solutions.</li>
+          <li><strong>Innovation:</strong> Continuously improving and evolving our solutions.</li>
           <li><strong>Quality:</strong> Delivering high-quality products and services.</li>
-          <li><strong>Customer Satisfaction:</strong> Ensuring our customers are satisfied and their needs are met.</li>
+          <li><strong>Customer Satisfaction:</strong> Ensuring our users' needs are met and satisfaction is achieved.</li>
         </ul>
       </section>
       <section className="contact-info">
@@ -65,11 +55,9 @@ export function AboutUs () {
 <div>
       <div>
                 <nav>
-                    <Link to="/">Back</Link>
-                    <Link to="/about/history">history</Link>
+                    <Link to="/about/history">Our History</Link>
                 </nav>
             </div>
-            <h1>About Us</h1>
             <Outlet></Outlet>
             
         </div>

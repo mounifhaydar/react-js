@@ -12,8 +12,8 @@ function CompareResult(props) {
   try {
     data = JSON.parse(compareResultValue);
   } catch (error) {
-    console.error('Failed to parse JSON:', error);
-    console.log(compareResultValue);
+    //console.error('Failed to parse JSON:', error);
+    //console.log(compareResultValue);
     data = {}; // Default to an empty object if parsing fails
   }
 
@@ -25,6 +25,11 @@ function CompareResult(props) {
 // Convert boolean to a readable string
 const noDiffString = noDiff ? 'Yes' : 'No';
 
+  //initialize the form
+  // useEffect(() => {
+    
+  // },[]);
+  
   const handleClick = (e) => {
     console.log("result clicked");
     console.log(compareResultValue);
@@ -50,7 +55,7 @@ const noDiffString = noDiff ? 'Yes' : 'No';
     <div className="diffState">
             <h3 style={{ color: 'red' }}>diffCounter: {diffCounter}</h3>
             <h3 style={{ color: 'green' }}>equalCounter: {equalCounter}</h3>
-            <h3>noDiff: {noDiffString}</h3>
+            <h3>is JSON match: {noDiffString}</h3>
         </div>
   </div>);
 

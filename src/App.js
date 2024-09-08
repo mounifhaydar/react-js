@@ -6,9 +6,10 @@ import Navigator from './nav/Navigator';
 import ReactDOM from 'react-dom';
 import backgroundJson from './assets/images/backgrounds/json-background.jpg';
 import { Outlet } from "react-router-dom";
+import { APP_CONSTANTS } from './constants';
 
 const displayHellow = () => {
-  return 'Welcome to Json Comparator'
+  return 'Welcome to ' +APP_CONSTANTS.APP_NAME;
 }
 
 function App() {
@@ -44,7 +45,7 @@ const menuItems = mainMenu.map((item, i) => ({
 }));
 
 const [firstItem, secondItem]=[mainMenu[0][0], mainMenu[1][0]];
-console.log("first Item" + firstItem);
+//console.log("first Item" + firstItem);
 
 function GlobalNav(props){
   return(
@@ -71,7 +72,7 @@ function Footer(props){
   </div>
     <a
       className="App-link"
-      href=""
+      href="/"
       target="_parent"
       rel="noopener noreferrer"
     >
