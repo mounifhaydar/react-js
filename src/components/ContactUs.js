@@ -16,7 +16,12 @@ const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission (e.g., send data to server or API)
-    alert('Your message has been sent!');
+    setTimeout(function() {
+      alert('Your message has been sent!');
+      alert('Don’t hesitate to contact us on our direct email: ' + APP_CONSTANTS.OWNER_EMAIL + ', and our team will get back to you as soon as possible.');
+    }, 500); // The message will appear after 2 seconds (2000 milliseconds)
+    
+    //alert('We are currently experiencing technical difficulties. If you have any questions or need assistance, please reach out to us via email at ' + APP_CONSTANTS.SUPPORT_EMAIL + ' and our team will get back to you as soon as possible.');
     setFormData({ name: '', email: '', message: '' });
   };
 

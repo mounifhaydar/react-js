@@ -6,12 +6,12 @@ const TryPro = () => {
   return (
     <div className="json-comparator">
       <header className="header">
-        <h1>JSON Comparator</h1>
+        <h1>{APP_CONSTANTS.APP_NAME}</h1>
       </header>
       <section className="overview">
         <h2>Overview</h2>
         <p>
-          JSON Comparator is a powerful web service designed to help you compare and analyze JSON data efficiently. Whether you're dealing with configuration files, API responses, or any other JSON data, JSON Comparator makes it easy to identify differences and similarities.
+          {APP_CONSTANTS.APP_NAME} is a powerful web service designed to help you compare and analyze JSON data efficiently. Whether you're dealing with configuration files, API responses, or any other JSON data, {APP_CONSTANTS.APP_NAME} makes it easy to identify differences and similarities.
         </p>
       </section>
       <section className="features">
